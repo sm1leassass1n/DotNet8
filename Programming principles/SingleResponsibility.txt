@@ -1,0 +1,70 @@
+Definition
+A class, service or component should have only one reason to change/be responsible for one thing.
+
+Responsibilities: 
+Responsibilities or reasons to change can be hard to define or measure but for example an email service would be responsible for 
+sending emails. If however you had a Checkout service that when a customer had completed payment then managed sending the email,
+then the checkout service has broken the single responsibility principle.
+
+Reasons to Change:
+The reason you would want to split a class or service etc into seperate entities is that it keeps the amount of times you need
+to change that it. A great way to spot when you need to split something out is seeing how many tests you need to change to make 
+an update. Take the checkout service earlier. If the method to receive payment and sending an email are in the same method
+Then changing the functionality for sending the email will likely cause you to need to update your payment tests. Your tests
+will likely be over complicated and more difficult to change
+
+Cohesion and coupling.
+These terms are a way of measuring the SRP and the boundaries that you set. It is worth noting that there is no set rules to
+make the perfect boundaries for the parts of your system and the SRP is even needed when splitting out a monolith design
+into a microservices architecture. An example that i remember personally is in our Microservices architecture at Zippe we had ran
+into a problem. We needed to create a booking and to do that we needed to check some validation before doing so. Our validation
+Included driver validation (can they take the job) and Site validation (Can a job be taken in this area with this customer and driver)
+Now we had seperated the responsibility of sites, bookings and drivers into three different microservices. This meant that when creating
+a booking we needed the booking service to communicate with two other services before creating the booking. It caused a couple problems
+latency issues, database access issues (explained more later) and booking state issues. Now these problems were exacerbated by the 
+fact our only communication between microservices was using events. But at the time what we hadn't noticed that our cohesion of the 
+booking microservice was low. This could be seen because we HAD to use the other microservices to create a single booking.
+Now some of the solutions I have thought of since then include
+1. Merging the Sites microservice into the booking microservice - because the sites service did so little it could of been incorporated
+into the booking service without much worry however this would've put the scope of the booking service to large and complex
+2. direct messaging between the sites and booking service. This wouldve removed the slowness and complexity of communicating between 
+the two microservices by events and reduced some of the booking state complexity.- also could be sped up with caching
+3. keeping a copy of the sites data. That can't be modified inside the booking microservice. This would of removed the need 
+for communication on a per booking basis and we would only need to manage the communication to keep the copy of data from the 
+booking service up to date
+
+The only thing I do know in this case is that the sites and booking microservices should of started together to reduce complexity
+of communication and speed up development. They could of been seperated at a later date
+
+The same can't be said for the drivers microservice. It can obviously be built seperate from the start. Or all together in a
+monolith if that is the approach you are planning to take
+
+The database access problem. Each of our microservices had their own database. Sort of. The tables and schemas were seperate
+but the databases were all run in one container meaning that the resources of each table was split inside one container.
+When multiple bookings needed to be created and the 3 microservices were each making database upadates. The single database
+container quickly had the number of connection slots maxed out and caused errors.
+
+Reusability
+Having a single responsiblity keeps the amount of Things you need to do and down and makes the code more Generic. This increases
+reusability because reusability is gone when there is something you want but it is already tied to something else.
+Take the Checkout service from earlier. You can't easily send an email because you have to pay for an order.
+
+SRP Summary:
+one class, service, module, library, thing is responsible for and does one thing and one thing only. This next analogy is used too
+often and people don't understand how hard the actuall outcome is. "Spaghetti code" Everything is linked, everything touches
+everything. You can't change one piece of spaghetti without changing another. But the analogy is not intense enough. As a 
+developer we are prisoners to our code. We can't do anything without it. So instead of spaghetti imagine a metal chain.
+and instead of in a bowl with sauce. The chains are inside an empty brick room with you and they are attached to your wrists
+and ankles. you now have to build a new feature. Maybe its a nice hammock. but you decide to be lazy. You create the hammock with
+the chans that are connected to your ankles. You can't move more than 5 ft away from the hammock. now you want to build a kitchen.
+but you strap the cupboards up with the chain connected to your wrist and in the process you move the hammock into the newly built
+kitchen. you think this isn't so bad. You want the food nearby. But you have forgotten something. you need a toilet. How do you get
+to the toilet. you don't want it near you food. but you can't get out of the kitchen. the chains are tangled. How do you get out.
+Unfortunately the only answer is with a lot of hard work. And that's what we want to avoid.
+
+TLDR:
+One thing does one thing
+
+This class represents a book
+This service manages Posts
+This method converts strings to int's

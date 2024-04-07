@@ -1,0 +1,22 @@
+Why:
+.Net Aspire is an opinionated cloud ready stack for building applications.
+In the same way that tanstack react query is opinionated for api requests. 
+
+Orchestration: 
+.NET Aspire provides features for running and connecting multi-project applications and their dependencies for local development
+environments.
+
+Components: .NET Aspire components are NuGet packages for commonly used services, such as Redis or Postgres, with standardized
+interfaces ensuring they connect consistently and seamlessly with your app.
+
+Tooling: .NET Aspire comes with project templates and tooling experiences for Visual Studio and the dotnet CLI help you create 
+and interact with .NET Aspire apps.
+
+
+Orchestration includes useful setup methods for connecting distributed services and resources. 
+https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/app-host-overview
+
+final:
+.Net aspire is not something I can just learn. So I think when it gets time to making projects I will try use .Net aspire
+I have looked through the docs a bit and most of it seems to be there to make your projects easier and quicker to make.
+
