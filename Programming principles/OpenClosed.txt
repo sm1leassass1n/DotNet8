@@ -1,0 +1,28 @@
+Definition
+Software entities should be open to extension but closed to modification. inheritance and not needing to change existing code when adding new functionality
+inheriting from old or existing modules.
+
+Abstractions
+Hiding how the Method or piece of software works and only showing the defined interface. The internals of the method may change but aslong as the
+interface is the same the output should stay the same
+
+Example
+Keeping services closed is used in unit testing when we mock any interfaces that a method may use where we specify the response the service returns
+open classes such as the Base controller for API controllers in .Net core allowing you to extend upon the base class without having to change it
+
+Decorator Pattern
+a class takes as an input to it's constructor the type of class it implements. As a way to extend the implemented class. It can call/overwrite the methods
+from the base class or even add its own. some methods "abstract" have to be overwritten.
+
+Extension Methods
+Extension methods take the class as an input with the 'this' keyword
+they are declared like
+public static bool IsExtensionMethod(this SomeClass class)
+
+and used like this
+var class = new SomeClass()
+class.IsExtensionMethod
+
+Open Closed Summary
+The classes etc you create should not be changeable and should not need to be changed except for bugs in most cases. the methods of the classes 
+are accessible through the defined interfaces and the way the specific methods shouldn't matter
