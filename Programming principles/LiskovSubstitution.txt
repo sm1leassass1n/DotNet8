@@ -1,0 +1,17 @@
+Definition
+introduced by Barbara Liskov. The principle states that if an object A sub types object B then
+What is true for B is also true for A. 
+
+Rules of LSP
+Design by Contract
+When designing classes and their relationships, ensure that derived classes fulfill the contract established by the base class. This includes adhering to method signatures, return types, and any specified behavior.
+
+Favor Composition over Inheritance
+Instead of relying heavily on inheritance, consider using composition to achieve code reuse and flexibility. This can help avoid LSP violations and other design pitfalls associated with inheritance.
+
+Use Interface-Based Programming
+Implementing interfaces rather than inheriting from concrete classes can help enforce LSP adherence, as interfaces define contracts that must be fulfilled by any implementing class.
+
+The above rules were stolen from here:
+https://dev.to/bytehide/learn-liskov-substitution-principle-in-c-examples-3kla#:~:text=Liskov%20Substitution%20Principle%20C%23%20Example&text=In%20this%20example%2C%20the%20Square,objects%20without%20causing%20any%20issues.
+

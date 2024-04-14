@@ -1,0 +1,19 @@
+Clients like classes etc should not be forced to rely on/implement methods they do not use.
+
+In cases where this happens the interface is not specific enough and should have their scope tightened
+
+Example
+Interface IVehicle
+Method Drive
+Method Fly
+
+Class Car inherites IVehicle
+Method Drive implemented
+Method Fly Not implemented
+
+Class Plane inherites IVehicle
+Method Drive implemented
+Method Fly implemented
+
+you are breaking interface segregation rules for the car class
+
