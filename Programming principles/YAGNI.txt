@@ -1,0 +1,3 @@
+YAGNI- you aren't gonna need it:
+Don't add software until it is necessary. Otherwise it is going to sit in the codebase bloating 
+things and potentially never being used.

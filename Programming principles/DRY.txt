@@ -1,0 +1,3 @@
+DRY - don't repeat yourself:
+There are lots of ways to reduce code duplication. loops, extension methods, Helper classes, Services, 
+Generic (classes, methods), statics methods, etc. There is almost no reason to repeat yourself. so please DRY

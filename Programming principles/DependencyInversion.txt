@@ -1,0 +1,9 @@
+Dependency Inversion:
+High level modules that are responsible for more complex processes should be independant from the small modules
+that they use. AKA not affected by any changes that happen inside the smaller module. An example of this is 
+Dependency injection. IT should also be noted that it isn't just the smaller module that should be abstracted 
+but also the larger module. And the implementation of these abstractions should not affect the abstration. 
+As an example getting data from a Database should not have a method abstraction with the name 
+"GetBookingFromSqlDatabase" because this describes action and shouldn't matter. It should however be called 
+GetBooking. And It may Happen to get the booking from a sql database but it should be possible to change the 
+implementation to use a different Database technology without changing the interface (abstration)
