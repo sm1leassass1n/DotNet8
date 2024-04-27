@@ -1,0 +1,13 @@
+overall thoughts: 
+I love this book and want to revisit it. I havent read it in a couple years but the whole start of the book is the philosophy behind why you should write clean code.
+It doesn't lecture you on why like most people naturally would because it's almost not the point and it just gives examples and stories from real people and 
+their thoughts. 
+
+I must admit that the only thought from the start of the book that has stuck with me is the idea that your code is your house. And that other developers
+are coming to visit. If your house is in pristine condition they are likely to treat your house very nicely out of respect for you and your efforts.
+But, if they visit and you have a smashed window and mess on the floor they aren't gonna care. They are likely going to want to do what they need and leave.
+
+Writing clean code is effort and requires practice. You need to be a boy scout making things better than you found them. It is tireing work to clean code.
+I do it as much as I can and will admit sometimes it gets too much and I rush when the code isnt mine to start. But anyone can write clean code. 
+You just have to want to.
+

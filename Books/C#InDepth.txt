@@ -1,0 +1,65 @@
+C# in depth:
+
+Overall thoughts:
+This book is not the best way to learn how to code. I don't even think it is a good way to learn if you are new
+It is a chronological order of features added to the language with each version and I am reading it. Not because
+I am new to the language. But because the author of this book is one of the most upvoted people on stack overflow,
+It was recommended by someone who I trust and because I want a deeper and explained knowledge of the features
+the language provides with a bit of back story about the order and development of the programming language.
+
+I am not reading the book thoroughly as decent chunks of the book I already know from my years of writing code.
+But, when I find something I don't know yet then I take the time to understand it.
+
+
+When I started this repository I was already partly through reading this book:
+
+chapter 4: interopability, generics and stuff that comes with it - I love generics btw because of what they 
+enable
+
+chapter 5. async await.
+Get ride of a lot of the boilerplate for async await
+Discussing how async await works and with task
+
+There are 3 async return types. void (the caller has no idea success or not) Task (The caller gets back a 
+Task result of success or any errors) and Task<TResult> where TResult is a generic type like int and a siccesfull 
+wait will return the int value.
+
+async methods will run synchronously until they hit the first await call where they will check the Task result. 
+In the case the Task contains the result (IsCompleted = true) then the method continues synchronously. If not 
+then it will Create a continuation which is like a callback but includes the state of the application at the 
+time it was created.
+
+you don't have to await async methods when you call them. This allows you in the case of http clients to make 
+multiple requests and then await them later in the program to get the results and is powerful asyncronous 
+behaviour. I don't currently know how async await behaves with the thread pool and i believe It is covered in 
+chapter 6
+
+c#7 added a custom task type: ValueTask<TResult> 99.9% of the time good for when you expect your asynchronous 
+code to have the result available before you reach the await
+
+tips for async code:
+Avoid context capture by using ConfigureAwait
+Enable Parallelism by starting independant tasks together and awaiting when you need to use the data
+Be careful mixing async and synchronous code and avoid using Task<TResult>.Result And Task.Wait() because it blocks a thread until results are available and can cause deadlocks.
+dont write async wrappers for synchronouse code and synchronous wrappers for async code. In most cases
+Allow cancellation tokens wherever possible
+
+Chapter 6:
+This chapter covers state machines and stub methods for handling async code. I have literally just read it
+and I am not going to pretend that I understood it. It is complicated and I am grateful It isn't me writing 
+that code. anyway, onward.
+
+Chapter 7:
+Discussed foreach iteration variables and a change made in c#5 that to be honest if it didn't exist already
+I would want it because it is how I treat foreach loops naturally. Interesting that they didn't do the same
+for for loops but I agree with their reasoning why. Also talks about caller information attributes. I think
+I have used them once before directly when I wanted to know the name of the parent method of the method I 
+was currently in. I can't remember why I wanted that information but caller information attributes made it 
+possible.
+
+PART 3 C#6:
+reading the description of this upcoming section of the book. The upcoming features in c#6 are about 
+adding polish to our existing code. I am excited to read more. Lets see if there are features
+he mentions that I feel I should use more of in the future for that sweet sweet clean code.
+
+
