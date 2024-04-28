@@ -40,7 +40,8 @@ code to have the result available before you reach the await
 tips for async code:
 Avoid context capture by using ConfigureAwait
 Enable Parallelism by starting independant tasks together and awaiting when you need to use the data
-Be careful mixing async and synchronous code and avoid using Task<TResult>.Result And Task.Wait() because it blocks a thread until results are available and can cause deadlocks.
+Be careful mixing async and synchronous code and avoid using Task<TResult>.Result And Task.Wait() because it 
+blocks a thread until results are available and can cause deadlocks.
 dont write async wrappers for synchronouse code and synchronous wrappers for async code. In most cases
 Allow cancellation tokens wherever possible
 
@@ -62,4 +63,29 @@ reading the description of this upcoming section of the book. The upcoming featu
 adding polish to our existing code. I am excited to read more. Lets see if there are features
 he mentions that I feel I should use more of in the future for that sweet sweet clean code.
 
+
+Chapter 8: Properties and expression bodied members:
+
+So far this chapter is just listing ways things have been changed and showing how so I will just do the same 
+i guess
+
+Automatically implemented properties {get; set;} 
+
+Declaring and initializing  properties - public List<int> numbers {get; set;} = new List<int>()
+
+simpler computed properties
+
+expression bodied properties and methods; I could do with using these more.
+
+the properties and methods stuff I already knew most of but could use more of expression bodied properties and
+methods. Maybe in constructors too.
+
+He mentions writing expression bodied methods makes it feel closer to functional programming and makes him feel
+smarter. This reminds me of how I feel when I study outside of work. When I look at programming stuff that
+I haven't done before I feel dumb as it is new to me and sometimes I make small mistakes and this book is showing
+me a lot of things I don't know. But as I spend time working through the book I feel smarter because I understand
+new things, it makes me think of things I have worked on previously and how to improve it. Plainly doing things
+that make us feel smarter make us work smarter.
+
+Chapter 9:
 
